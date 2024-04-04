@@ -10,7 +10,7 @@ RUN apt-get update && \
 WORKDIR /app
 
 # download and extract bitcoin core
-RUN wget https://bitcoincore.org/bin/bitcoin-core-${BITCOIN_CORE_VER}/bitcoin-${BITCOIN_CORE_VER}-x86_64-linux-gnu.tar.gz -O - | tar xzv --strip-components=1
+RUN wget https://github.com/bitcoinknots/bitcoin/releases/download/v26.1.knots20240325/bitcoin-26.1.knots20240325-x86_64-linux-gnu.tar.gz -O - | tar xzv --strip-components=1
 
 RUN pwd
 RUN find -ls

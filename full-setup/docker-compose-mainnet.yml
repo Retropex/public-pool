@@ -2,10 +2,7 @@ version: '3.8'
 
 services:
   bitcoin:
-    container_name: bitcoin
-    build:
-      context: ./docker/bitcoin
-      dockerfile: Dockerfile
+    image: retropexx/bitcoind:v26.1@sha256:14d3acf5f5d3030631161e37d8f8115f489acf94340cd6bc45328584442603e4
     restart: unless-stopped
     stop_grace_period: 30s
     networks:
@@ -21,10 +18,7 @@ services:
       - "./bitcoin-mainnet.conf:/app/data/bitcoin.conf:ro"
 
   public-pool:
-    container_name: public-pool
-    build:
-      context: ..
-      dockerfile: Dockerfile
+    image: ghcr.io/benjamin-wilson/public-pool:a98ec38
     restart: unless-stopped
     stop_grace_period: 30s
     networks:
